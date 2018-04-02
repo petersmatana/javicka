@@ -1,4 +1,4 @@
-package cz.pkg;
+package cz.pkg.optional;
 
 public class Main {
 
