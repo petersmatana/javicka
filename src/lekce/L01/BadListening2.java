@@ -8,10 +8,27 @@ public class BadListening2 {
     private static final String RED = "red";
     private static final String GREEN = "green";
 
+    @FunctionalInterface
+    public interface IntInterface {
+        int get();
+    }
+
+
+    public void useIt() {
+        IntInterface x = () -> {
+            return 13;
+        };
+        System.out.println(x.get());
+    }
+
     public static void main(String[] args) {
         // inventory();
 
-        print();
+        IntInterface x = () -> 132;
+
+        System.out.println(x.get());
+
+        // print();
     }
 
     private static void invertory() {
