@@ -11,40 +11,25 @@ public class MyStream_Filter {
     private static final String BLUE = "blue";
 
     public static void main(String[] args) {
-        new MyStream_Map();
+        new MyStream_Filter();
     }
 
     public MyStream_Filter() {
         List<Apple> l = inventory()
                 .stream()
-
+                .filter((Apple apple) ->
+                        apple.getColor().equals(GREEN) &&
+                        apple.getWeight() > 113)
                 .collect(Collectors.toList());
 
         System.out.println(l);
     }
 
-    public Jabko makeItBlue() {
-        Jabko tmp = (Apple apple) -> {
-            apple.setColor(BLUE);
-            return apple;
-        };
-
-        return tmp;
+    /*
+    public MyStream_Map.Jabko bigGreen() {
+        return (Apple apple) -> apple.getColor().equals(GREEN) && apple.getWeight() > 113;
     }
-
-    public Jabko raiseWeight() {
-        Jabko tmp = (Apple apple) -> {
-            apple.setWeight(apple.getWeight() + 10);
-            return apple;
-        };
-
-        return tmp;
-    }
-
-    @FunctionalInterface
-    public interface Jabko {
-        Apple nevim(Apple a);
-    }
+    */
 
     private static List<Apple> inventory() {
         List<Apple> inventory = List.<Apple>of(
